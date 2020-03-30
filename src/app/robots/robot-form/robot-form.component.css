@@ -1,0 +1,46 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container .mat-form-field {
+  margin-bottom: 5px;
+}
+
+.form-container .mat-checkbox {
+  margin-bottom: 15px;
+}
+
+.form-container .mat-radio-button {
+  margin: 0 5px;
+}
+
+.form-name-and-color {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-name-and-color > * {
+  width: 50%;
+}
+
+.form-name-and-color .mat-form-field {
+  margin-bottom: 15px;
+}
+
+.form-robot {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-robot > * {
+  width: 33%;
+}
+
+.form-robot .mat-form-field {
+  margin-bottom: 15px;
+}
+
+.right {
+  text-align: right;
+}

@@ -1,0 +1,13 @@
+{
+  "array": [
+    {
+      "name": "Trr001",
+      "namespace": "trr1",
+      "color": "#E91E6380",
+      "address": "localhost",
+      "port": 9091,
+      "id": 0
+    }
+  ],
+  "nextId": 1
+}

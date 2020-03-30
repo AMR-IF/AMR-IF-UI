@@ -1,0 +1,28 @@
+<!--
+ Copyright (C) 2020 TOSHIBA Corporation.
+ SPDX-License-Identifier: BSD-2-Clause
+ -->
+
+<h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <div class="form-container">
+    <mat-form-field>
+      <input
+        matInput
+        [(ngModel)]="data.inputed"
+        [(placeholder)]="data.placeholder"
+        [matAutocomplete]="inputAutocomplete"
+        cdkFocusInitial
+      />
+      <mat-autocomplete #inputAutocomplete="matAutocomplete">
+        <mat-option *ngFor="let option of data.options" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Cancel</button>
+  <button mat-button (click)="onOkClick()">Ok</button>
+</div>

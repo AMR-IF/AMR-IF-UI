@@ -1,0 +1,29 @@
+<!--
+ Copyright (C) 2020 TOSHIBA Corporation.
+ SPDX-License-Identifier: BSD-2-Clause
+ -->
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/">
+        <mat-icon matTooltip="Home" matTooltipPosition="right">home</mat-icon>
+      </a>
+      <a mat-list-item routerLink="/robots">
+        <mat-icon matTooltip="Robots" matTooltipPosition="right">airport_shuttle</mat-icon>
+      </a>
+      <a mat-list-item routerLink="/poses">
+        <mat-icon matTooltip="Poses" matTooltipPosition="right">place</mat-icon>
+      </a>
+      <a mat-list-item routerLink="/cmd-lists">
+        <mat-icon matTooltip="CmdLists" matTooltipPosition="right">list</mat-icon>
+      </a>
+      <a mat-list-item routerLink="/settings">
+        <mat-icon matTooltip="Settings" matTooltipPosition="right">settings</mat-icon>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,32 @@
+<!--
+ Copyright (C) 2020 TOSHIBA Corporation.
+ SPDX-License-Identifier: BSD-2-Clause
+ -->
+
+<div class="grid-container">
+  <h1 class="mat-h1">Settings</h1>
+  <div align="right">
+    <button mat-button (click)="import()">Import</button>
+    <button mat-button (click)="export()">Export</button>
+    <button mat-button (click)="clear()">Clear</button>
+  </div>
+  <mat-card>
+    <mat-card-content>
+      <table border="1" rules="rows">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+        <tr *ngFor="let row of array">
+          <td><a routerLink="/setting/detail/{{ row.id }}">{{ row.id }}</a></td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.value }}</td>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+  <div align="right">
+    <button mat-button (click)="reset()">ALL RESET</button>
+  </div>
+</div>

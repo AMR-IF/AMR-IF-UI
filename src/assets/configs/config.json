@@ -1,0 +1,261 @@
+{
+  "protocols": [
+    {
+      "type": "stop",
+      "request": {
+        "topic": "stop_cmd",
+        "messageType": "trr_msgs/RoboCmd",
+        "messages": [
+          {
+            "cmd": "cancel",
+            "params": [],
+            "nextid": []
+          }
+        ]
+      },
+      "response": {
+        "topic": "stop_res",
+        "messageType": "trr_msgs/RoboRes",
+        "messages": [
+          {
+            "cmd": "cancel",
+            "params": [],
+            "nextid": [],
+            "status": {
+              "statuses": [
+                {
+                  "name": "succeeded"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "robo",
+      "request": {
+        "topic": "robo_cmd",
+        "messageType": "trr_msgs/RoboCmd",
+        "messages": [
+          {
+            "cmd": "run_nav",
+            "params": [
+              {
+                "name": "mapfile_name",
+                "values": []
+              }
+            ],
+            "nextid": []
+          },
+          {
+            "cmd": "kill_nav",
+            "params": [],
+            "nextid": []
+          },
+          {
+            "cmd": "set_pose",
+            "params": [
+              {
+                "name": "mapfile_name",
+                "values": []
+              },
+              {
+                "name": "goal_name",
+                "values": []
+              }
+            ],
+            "nextid": []
+          }
+        ]
+      },
+      "response": {
+        "topic": "robo_res",
+        "messageType": "trr_msgs/RoboRes",
+        "messages": [
+          {
+            "cmd": "run_nav",
+            "params": [
+              {
+                "name": "mapfile_name",
+                "values": []
+              }
+            ],
+            "nextid": [],
+            "status": {
+              "statuses": [
+                {
+                  "name": "succeeded"
+                },
+                {
+                  "name": "rejected"
+                },
+                {
+                  "name": "preempted"
+                },
+                {
+                  "name": "aborted"
+                },
+                {
+                  "name": "processing"
+                }
+              ]
+            }
+          },
+          {
+            "cmd": "kill_nav",
+            "params": [],
+            "nextid": [],
+            "status": {
+              "statuses": [
+                {
+                  "name": "succeeded"
+                }
+              ]
+            }
+          },
+          {
+            "cmd": "set_pose",
+            "params": [
+              {
+                "name": "mapfile_name",
+                "values": []
+              },
+              {
+                "name": "goal_name",
+                "values": []
+              }
+            ],
+            "nextid": [],
+            "status": {
+              "statuses": [
+                {
+                  "name": "succeeded"
+                },
+                {
+                  "name": "rejected"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "navi",
+      "request": {
+        "topic": "navi_cmd",
+        "messageType": "trr_msgs/RoboCmd",
+        "messages": [
+          {
+            "cmd": "goto",
+            "params": [
+              {
+                "name": "mapfile_name",
+                "values": []
+              },
+              {
+                "name": "goal_name",
+                "values": []
+              }
+            ],
+            "nextid": []
+          }
+        ]
+      },
+      "response": {
+        "topic": "navi_res",
+        "messageType": "trr_msgs/RoboRes",
+        "messages": [
+          {
+            "cmd": "goto",
+            "params": [
+              {
+                "name": "mapfile_name",
+                "values": []
+              },
+              {
+                "name": "goal_name",
+                "values": []
+              }
+            ],
+            "nextid": [],
+            "status": {
+              "statuses": [
+                {
+                  "name": "succeeded"
+                },
+                {
+                  "name": "rejected"
+                },
+                {
+                  "name": "preempted"
+                },
+                {
+                  "name": "aborted"
+                },
+                {
+                  "name": "processing"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "cmdlist",
+      "request": {
+        "topic": "robo_cmdlist",
+        "messageType": "trr_msgs/RoboCmdList",
+        "messages": [
+          {
+            "cmd": "cmdlist",
+            "params": [
+              {
+                "name": "start_index",
+                "values": []
+              }
+            ],
+            "nextid": []
+          }
+        ]
+      },
+      "response": {
+        "topic": "robo_reslist",
+        "messageType": "trr_msgs/RoboResList",
+        "messages": [
+          {
+            "cmd": "cmdlist",
+            "params": [
+              {
+                "name": "start_index",
+                "values": []
+              }
+            ],
+            "nextid": [],
+            "status": {
+              "statuses": [
+                {
+                  "name": "succeeded"
+                },
+                {
+                  "name": "rejected"
+                },
+                {
+                  "name": "preempted"
+                },
+                {
+                  "name": "aborted"
+                },
+                {
+                  "name": "processing"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

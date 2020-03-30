@@ -1,0 +1,62 @@
+{
+  "array": [
+    {
+      "name": "demo",
+      "commands": [
+        {
+          "command": {
+            "nextid": [],
+            "cmd": "run_nav",
+            "params": [
+              "map_200206b"
+            ],
+            "id": ""
+          },
+          "id": 0
+        },
+        {
+          "command": {
+            "nextid": [],
+            "cmd": "set_pose",
+            "params": [
+              "map_200206b",
+              "P000"
+            ],
+            "id": ""
+          },
+          "id": 1
+        },
+        {
+          "command": {
+            "nextid": [],
+            "cmd": "goto",
+            "params": [
+              "map_200206b",
+              "P001"
+            ],
+            "id": "c2"
+          },
+          "id": 2
+        },
+        {
+          "command": {
+            "nextid": [
+              "c2",
+              ""
+            ],
+            "cmd": "goto",
+            "params": [
+              "map_200206b",
+              "P000"
+            ],
+            "id": ""
+          },
+          "id": 3
+        }
+      ],
+      "id": 0,
+      "mode": "custom"
+    }
+  ],
+  "nextId": 1
+}

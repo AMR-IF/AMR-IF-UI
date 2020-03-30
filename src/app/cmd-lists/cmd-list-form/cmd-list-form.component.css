@@ -1,0 +1,29 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container .mat-form-field {
+  margin-bottom: 5px;
+}
+
+.form-container > * {
+  width: 100%;
+}
+
+.form-cmd-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-cmd-list > * {
+  width: 100%;
+}
+
+.form-cmd-list .mat-form-field {
+  margin-bottom: 15px;
+}
+
+.right {
+  text-align: right;
+}

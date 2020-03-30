@@ -1,0 +1,79 @@
+<!--
+ Copyright (C) 2020 TOSHIBA Corporation.
+ SPDX-License-Identifier: BSD-2-Clause
+ -->
+
+<div *ngIf="edit">
+  <div class="form-container">
+    <div class="form-name-and-color">
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="edit.name"
+          placeholder="Name"
+          [matAutocomplete]="autoName"
+        />
+        <mat-hint align="end">MyPose</mat-hint>
+        <mat-autocomplete #autoName="matAutocomplete">
+          <mat-option *ngFor="let option of nameOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field [style.background-color]="edit.color">
+        <input
+          matInput
+          [(ngModel)]="edit.color"
+          placeholder="Color"
+          [matAutocomplete]="autoColor"
+        />
+        <mat-hint align="end">#000000FF</mat-hint>
+        <mat-autocomplete #autoColor="matAutocomplete">
+          <mat-option
+            *ngFor="let option of colorOptions"
+            [value]="option.value"
+            [style.background-color]="option.value"
+          >
+            {{ option.value }} [{{ option.name }})]
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="form-position">
+      <mat-form-field>
+        <input
+          matInput
+          class="right"
+          type="number"
+          step="0.001"
+          [(ngModel)]="edit.rospose.position.x"
+          placeholder="Position x"
+        />
+        <mat-hint align="end">x</mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          class="right"
+          type="number"
+          step="0.001"
+          [(ngModel)]="edit.rospose.position.y"
+          placeholder="Position y"
+        />
+        <mat-hint align="end">y</mat-hint>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          class="right"
+          type="number"
+          step="0.001"
+          [(ngModel)]="yaw"
+          (ngModelChange)="onChangeYaw()"
+          placeholder="Orientation yaw"
+        />
+        <mat-hint align="end">yaw[degree]</mat-hint>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

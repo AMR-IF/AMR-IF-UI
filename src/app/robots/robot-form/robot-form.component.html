@@ -1,0 +1,88 @@
+<!--
+ Copyright (C) 2020 TOSHIBA Corporation.
+ SPDX-License-Identifier: BSD-2-Clause
+ -->
+
+<div *ngIf="edit">
+  <div class="form-container">
+    <div class="form-name-and-color">
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="edit.name"
+          placeholder="Name"
+          [matAutocomplete]="autoName"
+        />
+        <mat-hint align="end">MyRobot</mat-hint>
+        <mat-autocomplete #autoName="matAutocomplete">
+          <mat-option *ngFor="let option of nameOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field [style.background-color]="edit.color">
+        <input
+          matInput
+          [(ngModel)]="edit.color"
+          placeholder="Color"
+          [matAutocomplete]="autoColor"
+        />
+        <mat-hint align="end">#000000FF</mat-hint>
+        <mat-autocomplete #autoColor="matAutocomplete">
+          <mat-option
+            *ngFor="let option of colorOptions"
+            [value]="option.value"
+            [style.background-color]="option.value"
+          >
+            {{ option.value }} [{{ option.name }})]
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="form-robot">
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="edit.namespace"
+          placeholder="Namespace"
+          [matAutocomplete]="autoNamespace"
+        />
+        <mat-hint align="end">trr1</mat-hint>
+        <mat-autocomplete #autoNamespace="matAutocomplete">
+          <mat-option *ngFor="let option of namespaceOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="edit.address"
+          placeholder="Address"
+          [matAutocomplete]="autoAddress"
+        />
+        <mat-hint align="end">localhost</mat-hint>
+        <mat-autocomplete #autoAddress="matAutocomplete">
+          <mat-option *ngFor="let option of addressOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="edit.port"
+          type="number"
+          placeholder="Port"
+          [matAutocomplete]="autoPort"
+        />
+        <mat-autocomplete #autoPort="matAutocomplete">
+          <mat-option *ngFor="let option of portOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-hint align="end">9090</mat-hint>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<!--
+ Copyright (C) 2020 TOSHIBA Corporation.
+ SPDX-License-Identifier: BSD-2-Clause
+ -->
+
+<div *ngIf="edit">
+  <div class="form-container">
+    <div class="form-cmd-list">
+      <mat-form-field>
+        <input
+          matInput
+          [(ngModel)]="edit.name"
+          placeholder="Name"
+          [matAutocomplete]="autoName"
+        />
+        <mat-hint align="end">MyCmdList</mat-hint>
+        <mat-autocomplete #autoName="matAutocomplete">
+          <mat-option *ngFor="let option of nameOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <app-commands></app-commands>
+  </div>
+</div>

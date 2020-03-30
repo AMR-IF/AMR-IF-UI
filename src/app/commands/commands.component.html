@@ -1,0 +1,148 @@
+<!--
+ Copyright (C) 2020 TOSHIBA Corporation.
+ SPDX-License-Identifier: BSD-2-Clause
+ -->
+
+<div class="grid-container">
+  <h1 class="mat-h1">Commands</h1>
+
+  <mat-card>
+    <mat-card-content>
+      <table border="1" rules="rows">
+        <tr>
+          <th>Order</th>
+          <th>Id</th>
+          <th>Cmd</th>
+          <th>Params</th>
+          <th>OK_nextid</th>
+          <th>NG_nextid</th>
+          <th>Operations</th>
+        </tr>
+        <tr *ngFor="let row of array">
+          <!-- Order Column -->
+          <td>
+            {{ indexOf(row) }}
+          </td>
+          <!-- Id Column -->
+          <td>
+            <mat-form-field>
+              <input
+                matInput
+                [(ngModel)]="row.command.id"
+                (ngModelChange)="onChange()"
+              />
+            </mat-form-field>
+          </td>
+          <!-- Cmd Column -->
+          <td>
+            <mat-form-field>
+              <input
+                matInput
+                [(ngModel)]="row.command.cmd"
+                (ngModelChange)="onChangeCmd($event, row)"
+                [matAutocomplete]="autoCmd"
+              />
+              <mat-autocomplete #autoCmd="matAutocomplete">
+                <mat-option
+                  *ngFor="let option of cmds"
+                  [value]="option"
+                >
+                  {{ option }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </td>
+          <!-- Params Column -->
+          <td>
+            <ng-container [ngSwitch]="row.command.params.length == 0">
+              <ng-container *ngSwitchCase="true"></ng-container>
+              <ng-container *ngSwitchCase="false">
+                <div class="form-params">
+                  <ng-container
+                    *ngFor="
+                      let param of row.command.params;
+                      let i = index;
+                      trackBy: trackByFn
+                    "
+                  >
+                    <ng-container
+                      [ngSwitch]="getAutocomplete(row, i).length == 0"
+                    >
+                      <ng-container *ngSwitchCase="true">
+                        <mat-form-field>
+                          <input
+                            matInput
+                            [(ngModel)]="row.command.params[i]"
+                            (ngModelChange)="onChange()"
+                          />
+                          <mat-hint align="end">{{ getHint(row, i) }}</mat-hint>
+                        </mat-form-field>
+                      </ng-container>
+                      <ng-container *ngSwitchCase="false">
+                        <mat-form-field>
+                          <input
+                            matInput
+                            [(ngModel)]="row.command.params[i]"
+                            (ngModelChange)="onChange()"
+                            [matAutocomplete]="autoParam"
+                          />
+                          <mat-hint align="end">{{ getHint(row, i) }}</mat-hint>
+                          <mat-autocomplete #autoParam="matAutocomplete">
+                            <mat-option
+                              *ngFor="let option of getAutocomplete(row, i)"
+                              [value]="option"
+                            >
+                              {{ option }}
+                            </mat-option>
+                          </mat-autocomplete>
+                        </mat-form-field>
+                      </ng-container>
+                    </ng-container>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </ng-container>
+          </td>
+          <!-- OK_nextid Column -->
+          <td>
+            <mat-form-field>
+              <input
+                matInput
+                [(ngModel)]="row.command.nextid[0]"
+                (ngModelChange)="onChange()"
+              />
+            </mat-form-field>
+          </td>
+          <!-- NG_nextid Column -->
+          <td>
+            <mat-form-field>
+              <input
+                matInput
+                [(ngModel)]="row.command.nextid[1]"
+                (ngModelChange)="onChange()"
+              />
+            </mat-form-field>
+          </td>
+          <!-- Operations Column -->
+          <td>
+            <button mat-button (click)="insertPrev(row)">
+              <mat-icon>vertical_align_top</mat-icon>
+            </button>
+            <button mat-button (click)="insertNext(row)">
+              <mat-icon>vertical_align_bottom</mat-icon>
+            </button>
+            <button mat-button (click)="moveNext(row)">
+              <mat-icon>arrow_downward</mat-icon>
+            </button>
+            <button mat-button (click)="movePrev(row)">
+              <mat-icon>arrow_upward</mat-icon>
+            </button>
+            <button mat-button (click)="remove(row)">
+              <mat-icon>delete_forever</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

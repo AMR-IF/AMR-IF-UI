@@ -1,0 +1,46 @@
+<!--
+ Copyright (C) 2020 TOSHIBA Corporation.
+ SPDX-License-Identifier: BSD-2-Clause
+ -->
+
+<div class="grid-container">
+  <h1 class="mat-h1">CmdLists</h1>
+
+  <div align="right">
+    <button mat-button (click)="import()">Import</button>
+    <button mat-button (click)="export()">Export</button>
+    <button mat-button (click)="clear()">Clear</button>
+  </div>
+
+  <mat-card>
+    <mat-card-content>
+      <table border="1" rules="rows">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Commands</th>
+        </tr>
+        <tr *ngFor="let row of array">
+          <td><a routerLink="/cmd-list/detail/{{ row.id }}">{{ row.id }}</a></td>
+          <td>{{ row.name }}</td>
+          <td>{{ toStringBrief(row.commands, 80) }}</td>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+  <hr>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> New cmdList </mat-panel-title>
+        <mat-panel-description> Type cmdList info </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-cmd-list-form [edit]="edit"></app-cmd-list-form>
+      <mat-action-row>
+        <button mat-button (click)="add()">Add</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

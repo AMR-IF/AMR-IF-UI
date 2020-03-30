@@ -1,0 +1,42 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container .mat-form-field {
+  margin-bottom: 5px;
+}
+
+.form-container > * {
+  width: 100%;
+}
+
+.form-name-and-color {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-name-and-color > * {
+  width: 50%;
+}
+
+.form-name-and-color .mat-form-field {
+  margin-bottom: 15px;
+}
+
+.form-position {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-position > * {
+  width: 33%;
+}
+
+.form-position .mat-form-field {
+  margin-bottom: 15px;
+}
+
+.right {
+  text-align: right;
+}

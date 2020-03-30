@@ -1,0 +1,52 @@
+<!--
+ Copyright (C) 2020 TOSHIBA Corporation.
+ SPDX-License-Identifier: BSD-2-Clause
+ -->
+
+<div class="grid-container">
+  <h1 class="mat-h1">Robots</h1>
+
+  <div align="right">
+    <button mat-button (click)="import()">Import</button>
+    <button mat-button (click)="export()">Export</button>
+    <button mat-button (click)="clear()">Clear</button>
+  </div>
+
+  <mat-card>
+    <mat-card-content>
+      <table border="1" rules="rows">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Color</th>
+          <th>Namespace</th>
+          <th>Address</th>
+          <th>Port</th>
+        </tr>
+        <tr *ngFor="let row of array">
+          <td><a routerLink="/robot/detail/{{ row.id }}">{{ row.id }}</a></td>
+          <td>{{ row.name }}</td>
+          <td [style.background-color]="row.color">{{ row.color }}</td>
+          <td>{{ row.namespace }}</td>
+          <td>{{ row.address }}</td>
+          <td>{{ row.port }}</td>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+  <hr>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title> New robot </mat-panel-title>
+        <mat-panel-description> Type robot info </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-robot-form [edit]="edit"></app-robot-form>
+      <mat-action-row>
+        <button mat-button (click)="add()">Add</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

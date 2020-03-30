@@ -1,0 +1,25 @@
+.grid-container {
+  margin: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container .mat-form-field {
+  margin-bottom: 5px;
+}
+
+.form-value {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-value > * {
+  width: 100%;
+}
+
+.form-value .mat-form-field {
+  margin-bottom: 15px;
+}
