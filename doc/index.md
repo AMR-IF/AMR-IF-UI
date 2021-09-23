@@ -63,7 +63,7 @@ $ sudo mv /var/log/apt/history.log.org /var/log/apt/history.log
 $ sudo cat history.log >> /var/log/apt/history.log
 ```
 
-更に、npm で n package を使って node をインストールする。
+更に、npm で n package を使って node をインストールする。
 
 ```shell
 $ sudo npm install n -g
