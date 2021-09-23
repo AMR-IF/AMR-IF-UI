@@ -4,23 +4,24 @@
 
 <!-- TOC -->
 
-- [1. インストール](#1-インストール)
+- [1. 環境構築](#1-環境構築)
     - [1.1. 環境](#11-環境)
     - [1.2. node.js のインストール](#12-nodejs-のインストール)
         - [1.2.1. Ubuntu 18.04/ros melodic の場合](#121-ubuntu-1804ros-melodic-の場合)
-        - [Home Brew (macOS)](#home-brew-macos)
+        - [1.2.2. Home Brew (macOS)](#122-home-brew-macos)
+- [インストール](#インストール)
 
 <!-- /TOC -->
 
-## 1. インストール
+## 1. 環境構築
 
 ### 1.1. 環境
 本パッケージを動作させるには以下の環境が必要です。
 
+- node.js 12.16.1 で動作確認済み
 - OS: AMR-IFサーバ (node.js) を動作可能であれば何でも良い
   - Linux, Windows あるいは macOS 等
   - 本ドキュメントでは Linux 上で動作させる方法を説明します
-- node.js バージョン XX以上
 - httpサーバ (Apache等)
 - Google Chrome
   - Google Chromeで動作する JavaScriptのバージョンが重要
@@ -103,10 +104,17 @@ $ which npm
 /usr/local/bin/npm
 ```
 
-#### Home Brew (macOS)
+#### 1.2.2. Home Brew (macOS)
 
 ```shell
 $ brew update
 $ brew install nodejs npm
 $ npm install angular
 ```
+
+
+## インストール
+
+本AMR-IFは、
+
+$ git clone 
