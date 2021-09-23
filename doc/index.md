@@ -2,11 +2,19 @@
 
 本パッケージは、NEDOロボット活用型市場化適用技術開発プロジェクト(2017-2020)で開発された、移動ロボット (Autonomout Mobile Robot: AMR) 用のWeb GUIインターフェースです。
 
+<!-- TOC -->
 
+- [1. インストール](#1-インストール)
+    - [1.1. 環境](#11-環境)
+    - [1.2. node.js のインストール](#12-nodejs-のインストール)
+        - [1.2.1. Ubuntu 18.04/ros melodic の場合](#121-ubuntu-1804ros-melodic-の場合)
+        - [Home Brew (macOS)](#home-brew-macos)
 
-## インストール
+<!-- /TOC -->
 
-### 環境
+## 1. インストール
+
+### 1.1. 環境
 本パッケージを動作させるには以下の環境が必要です。
 
 - OS: AMR-IFサーバ (node.js) を動作可能であれば何でも良い
@@ -19,7 +27,7 @@
 - Angular
   - npmなどでインストール
 
-### node.js のインストール
+### 1.2. node.js のインストール
 
 ```shell
 $ sudo apt update
@@ -28,7 +36,7 @@ $ sudo apt install nodejs npm
 $ 
 ```
 
-#### Ubuntu 18.04/ros melodic の場合
+#### 1.2.1. Ubuntu 18.04/ros melodic の場合
 
 rosがインストールされている状態から npm をインストールしようとすると、
 libssl1.0-dev の依存関係が解決されずインストールできない。強制的に
@@ -57,7 +65,7 @@ $ sudo cat history.log >> /var/log/apt/history.log
 
 更に、npm で n package を使って node をインストールする。
 
-'''shell
+```shell
 $ sudo npm install n -g
 /usr/local/bin/n -> /usr/local/lib/node_modules/n/bin/n
 /usr/local/lib
@@ -80,6 +88,7 @@ To reset the command location hash either start a new shell, or execute PATH="$P
 ```
 
 aptで入れた nodejs/npm はもう不要なので削除します。パッケージ削除後にパスを更新しないと正常にアクセスできないようなので .bashrc を読み直しています。
+
 
 ```shell
 $ sudo apt purge nodejs npm
